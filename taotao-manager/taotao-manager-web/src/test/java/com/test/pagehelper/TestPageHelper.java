@@ -1,4 +1,4 @@
-package com.test.sql;
+package com.test.pagehelper;
 
 import java.util.List;
 
@@ -34,7 +34,6 @@ public class TestPageHelper {
 		System.out.println("pages:" + pages);
 		int pageSize = pageInfo.getPageSize();
 		System.out.println("pageSize:" + pageSize);
-
 	}
 
 }
