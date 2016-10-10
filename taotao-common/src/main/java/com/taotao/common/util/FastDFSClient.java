@@ -17,7 +17,7 @@ public class FastDFSClient {
         //获取classpath路径下配置文件"fdfs_client.conf"的路径
         //conf直接写相对于classpath的位置，不需要写classpath:
         String configPath = this.getClass().getClassLoader().getResource(conf).getFile();
-        System.out.println(configPath);
+//        System.out.println(configPath);
         ClientGlobal.init(configPath);
 
         trackerClient = new TrackerClient();
