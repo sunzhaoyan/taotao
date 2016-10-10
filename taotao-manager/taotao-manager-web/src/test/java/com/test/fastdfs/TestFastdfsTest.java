@@ -1,9 +1,5 @@
 package com.test.fastdfs;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import org.csource.common.MyException;
 import org.csource.fastdfs.ClientGlobal;
 import org.csource.fastdfs.StorageClient;
 import org.csource.fastdfs.StorageServer;
@@ -14,7 +10,7 @@ import org.junit.Test;
 public class TestFastdfsTest {
 
 	@Test
-	public void testUpload() throws Exception{
+	public void testUpload() throws Exception {
 		// 1、把FastDFS提供的jar包添加到工程中
 		// 2、初始化全局配置。加载一个配置文件。
 		ClientGlobal.init(
@@ -24,13 +20,21 @@ public class TestFastdfsTest {
 		// 4、创建一个TrackerServer对象。
 		TrackerServer trackerServer = trackerClient.getConnection();
 		// 5、声明一个StorageServer对象，null。
-		StorageServer storageServer = null; 
+		StorageServer storageServer = null;
 		// 6、获得StorageClient对象。
 		StorageClient storageClient = new StorageClient(trackerServer, storageServer);
 		// 7、直接调用StorageClient对象方法上传文件即可。
-		String[] upload_file = storageClient.upload_file("G:\\图片\\喵 头像\\1f529e38407e104fbaee5d6c62cc4a75.png", "png", null);
+		String[] upload_file = storageClient.upload_file("C:\\Users\\szy\\Pictures\\Screenshots\\ceshi.png", "png",
+				null);
 		for (String string : upload_file) {
 			System.out.println(string);
 		}
+	}
+
+	@Test
+	public void testFastDfsClient() throws Exception {
+		FastDFSClient client = new FastDFSClient("properties/client.conf");
+		String uploadFile = client.uploadFile("C:\\Users\\szy\\Pictures\\Screenshots\\屏幕截图(1).png", "png");
+		System.out.println(uploadFile);
 	}
 }
