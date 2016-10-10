@@ -22,7 +22,6 @@ public class ItemController {
 	 * 根据商品id返回商品对象
 	 * 
 	 * @Title: getItemById
-	 * @Description: TODO
 	 * @param itemId
 	 * @return
 	 * @return: TbItem
@@ -38,7 +37,6 @@ public class ItemController {
 	 * 分页返回商品集合
 	 * 
 	 * @Title: getItemList
-	 * @Description: TODO
 	 * @param page
 	 * @param rows
 	 * @return

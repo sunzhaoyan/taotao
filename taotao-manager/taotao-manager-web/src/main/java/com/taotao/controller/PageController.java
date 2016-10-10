@@ -18,7 +18,6 @@ public class PageController {
 	 * 跳转到首页
 	 * 
 	 * @Title: showIndex
-	 * @Description: TODO
 	 * @return index逻辑视图
 	 * @return: String
 	 */
@@ -31,7 +30,6 @@ public class PageController {
 	 * 跳转到指定页面
 	 * 
 	 * @Title: showPage
-	 * @Description: TODO
 	 * @param page
 	 * @return
 	 * @return: String
