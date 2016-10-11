@@ -2,6 +2,7 @@ package com.taotao.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,12 +29,12 @@ public class ItemController {
 	 * @return
 	 * @return: TbItem
 	 */
-	@RequestMapping("/item/{itemId}")
-	@ResponseBody
-	private TbItem getItemById(@PathVariable Long itemId) {
-		TbItem item = itemService.getItemById(itemId);
-		return item;
-	}
+//	@RequestMapping("/item/{itemId}")
+//	@ResponseBody
+//	private TbItem getItemById(@PathVariable Long itemId) {
+//		TbItem item = itemService.getItemById(itemId);
+//		return item;
+//	}
 
 	/**
 	 * 分页返回商品集合
@@ -50,21 +51,37 @@ public class ItemController {
 		EasyUIDataGridResult result = itemService.getItemList(page, rows);
 		return result;
 	}
-	
+
 	/**
 	 * 商品新增
-	 * @Title: createItem 
+	 * 
+	 * @Title: createItem
 	 * @param item
 	 * @param desc
 	 * @return
 	 * @return: TaotaoResult
 	 */
-	@RequestMapping(value="/item/save", method=RequestMethod.POST)
+	@RequestMapping(value = "/item/save", method = RequestMethod.POST)
 	@ResponseBody
-	public TaotaoResult createItem(TbItem item, String desc) {
-		TaotaoResult result = itemService.createItem(item, desc);
+	public TaotaoResult createItem(TbItem item, String desc, String itemParam) {
+		TaotaoResult result = itemService.createItem(item, desc, itemParam);
 		return result;
 	}
 
+	/**
+	 * 查看商品规格参数
+	 * 
+	 * @Title: showItemParam
+	 * @param itemId
+	 * @param model
+	 * @return
+	 * @return: String
+	 */
+	@RequestMapping("/item/{itemId}")
+	public String showItemParam(@PathVariable Long itemId, Model model) {
+		String html = itemService.getItemParamHtml(itemId);
+		model.addAttribute("html", html);
+		return "itemparam";
+	}
 
 }

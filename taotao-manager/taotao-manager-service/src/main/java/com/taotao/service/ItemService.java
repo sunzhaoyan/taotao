@@ -36,8 +36,18 @@ public interface ItemService {
 	 * @Title: createItem 
 	 * @param item 商品对象
 	 * @param desc 描述
+	 * @param itemParam 规格参数
 	 * @return
 	 * @return: TaotaoResult
 	 */
-	public TaotaoResult createItem(TbItem item, String desc);
+	public TaotaoResult createItem(TbItem item, String desc, String itemParam);
+	
+	/**
+	 * 根据商品id获得规格参数
+	 * @Title: getItemParamHtml 
+	 * @param itemId
+	 * @return
+	 * @return: String
+	 */
+	public String getItemParamHtml(Long itemId);
 }

@@ -24,6 +24,7 @@ public class ItemParamController {
 
 	/**
 	 * 分页返回 商品规格参数模板
+	 * 
 	 * @param page
 	 * @param rows
 	 * @return
@@ -34,12 +35,19 @@ public class ItemParamController {
 		EasyUIDataGridResult result = itemParamService.getItemList(page, rows);
 		return result;
 	}
-	
+
 	@RequestMapping("/query/itemcatid/{cid}")
 	@ResponseBody
 	public TaotaoResult getItemParamByCid(@PathVariable("cid") Long cid) {
 		TaotaoResult taotaoResult = itemParamService.getItemParamByCid(cid);
 		return taotaoResult;
 	}
-	
+
+	@RequestMapping("/save/{cid}")
+	@ResponseBody
+	public TaotaoResult insertItemParam(@PathVariable Long cid, String paramData) {
+		TaotaoResult result = itemParamService.insertItemParam(cid, paramData);
+		return result;
+	}
+
 }

@@ -1,5 +1,6 @@
 package com.taotao.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,19 @@ public class ItemParamServiceImpl implements ItemParamService {
 			TbItemParam itemParam = list.get(0);
 			return TaotaoResult.ok(itemParam);
 		}
+		return TaotaoResult.ok();
+	}
+
+	@Override
+	public TaotaoResult insertItemParam(Long cid, String paramData) {
+		//创建一个pojo
+		TbItemParam itemParam = new TbItemParam();
+		itemParam.setItemCatId(cid);
+		itemParam.setParamData(paramData);
+		itemParam.setCreated(new Date());
+		itemParam.setUpdated(new Date());
+		//插入记录
+		itemParamMapper.insert(itemParam);
 		return TaotaoResult.ok();
 	}
 
