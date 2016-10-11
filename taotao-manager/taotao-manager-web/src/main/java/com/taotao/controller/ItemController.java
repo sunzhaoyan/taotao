@@ -29,12 +29,12 @@ public class ItemController {
 	 * @return
 	 * @return: TbItem
 	 */
-//	@RequestMapping("/item/{itemId}")
-//	@ResponseBody
-//	private TbItem getItemById(@PathVariable Long itemId) {
-//		TbItem item = itemService.getItemById(itemId);
-//		return item;
-//	}
+	@RequestMapping("/item/{itemId}")
+	@ResponseBody
+	private TbItem getItemById(@PathVariable Long itemId) {
+		TbItem item = itemService.getItemById(itemId);
+		return item;
+	}
 
 	/**
 	 * 分页返回商品集合
@@ -77,11 +77,11 @@ public class ItemController {
 	 * @return
 	 * @return: String
 	 */
-	@RequestMapping("/item/{itemId}")
+	@RequestMapping("/page/item/{itemId}")
 	public String showItemParam(@PathVariable Long itemId, Model model) {
 		String html = itemService.getItemParamHtml(itemId);
-		model.addAttribute("html", html);
-		return "itemparam";
+		model.addAttribute("myHtml", html);
+		return "itemParam";
 	}
 
 }

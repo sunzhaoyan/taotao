@@ -95,7 +95,7 @@ public class ItemServiceImpl implements ItemService {
 		com.taotao.pojo.TbItemParamItemExample.Criteria criteria = example.createCriteria();
 		criteria.andItemIdEqualTo(itemId);
 		// 执行查询
-		List<TbItemParamItem> list = itemParamItemMapper.selectByExample(example);
+		List<TbItemParamItem> list = itemParamItemMapper.selectByExampleWithBLOBs(example);
 		if (list == null || list.isEmpty()) {
 			return "";
 		}
@@ -113,7 +113,7 @@ public class ItemServiceImpl implements ItemService {
 		// 遍历list生成html
 		StringBuffer sb = new StringBuffer();
 
-		sb.append("<table cellpadding=\"0\" cellspacing=\"1\" width=\"100%\" border=\"0\" class=\"Ptable\">\n");
+		sb.append("<table cellpadding=\"0\" cellspacing=\"1\" width=\"100%\" border=\"1\" class=\"Ptable\">\n");
 		sb.append("	<tbody>\n");
 		for (Map map : mapList) {
 			sb.append("		<tr>\n");
