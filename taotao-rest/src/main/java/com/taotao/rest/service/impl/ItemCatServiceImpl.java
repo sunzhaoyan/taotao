@@ -38,7 +38,11 @@ public class ItemCatServiceImpl implements ItemCatService {
 		// 执行查询
 		List<TbItemCat> list = itemCatMapper.selectByExample(example);
 		List<Object> resultList = new ArrayList<Object>();
+		int count = 0;
 		for (TbItemCat tbItemCat : list) {
+			if (count >= 14) {
+				break;
+			}
 			// 如果是父节点
 			if (tbItemCat.getIsParent()) {
 				CatNode node = new CatNode();
@@ -46,6 +50,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 				// 如果当前节点为第一级节点
 				if (tbItemCat.getParentId() == 0) {
 					node.setName("<a href='/products/" + tbItemCat.getId() + ".html'>" + tbItemCat.getName() + "</a>");
+					count++;
 				} else {
 					node.setName(tbItemCat.getName());
 				}
