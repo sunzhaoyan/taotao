@@ -2,7 +2,6 @@ package com.taotao.service;
 
 import com.taotao.common.pojo.EasyUIDataGridResult;
 import com.taotao.common.pojo.TaotaoResult;
-import com.taotao.pojo.TbItemParam;
 
 /**
  * 商品规格参数模板

@@ -45,6 +45,7 @@ public class JSONUtils {
 	/**
 	 * json string convert to map
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T> Map<String, Object> json2map(String jsonStr) throws Exception {
 		return objectMapper.readValue(jsonStr, Map.class);
 	}
@@ -78,7 +79,7 @@ public class JSONUtils {
 	/**
 	 * map convert to javaBean
 	 */
-	public static <T> T map2pojo(Map map, Class<T> clazz) {
+	public static <T> T map2pojo(@SuppressWarnings("rawtypes") Map map, Class<T> clazz) {
 		return objectMapper.convertValue(map, clazz);
 	}
 }
