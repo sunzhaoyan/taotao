@@ -22,6 +22,7 @@ import com.taotao.rest.service.ItemService;
  * @date: 2016年10月18日 下午4:43:57
  */
 @Controller
+@RequestMapping("/item")
 public class ItemController {
 	@Autowired
 	private ItemService itemService;
@@ -32,7 +33,7 @@ public class ItemController {
 	 * @param itemId
 	 * @return
 	 */
-	@RequestMapping("/base/{itemId}")
+	@RequestMapping("/info/{itemId}")
 	@ResponseBody
 	public TaotaoResult getItemById(@PathVariable Long itemId) {
 		try {
