@@ -15,7 +15,7 @@ public class SolrJTest {
 
 	@Test
 	public void testSolrj() {
-		HttpSolrServer solrServer = new HttpSolrServer("http://192.168.148.128:8080/solr");
+		HttpSolrServer solrServer = new HttpSolrServer("http://192.168.87.129:8080/solr");
 		SolrInputDocument document = new SolrInputDocument();
 		document.addField("id", "solrtest01");
 		document.addField("item_title", "测试商品");
@@ -33,7 +33,7 @@ public class SolrJTest {
 	
 	@Test
 	public void testQuery() {
-		HttpSolrServer solrServer = new HttpSolrServer("http://192.168.148.128:8080/solr");
+		HttpSolrServer solrServer = new HttpSolrServer("http://192.168.87.129:8080/solr");
 		SolrQuery query = new SolrQuery();
 		query.setQuery("*:*");
 		try {

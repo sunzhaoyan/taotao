@@ -15,6 +15,6 @@
 	<!-- solr单机版 -->
 	<bean id="httpSolrClient" class="org.apache.solr.client.solrj.impl.HttpSolrServer">
 		<constructor-arg name="baseURL"
-			value="http://192.168.148.128:8080/solr" />
+			value="http://192.168.87.129:8080/solr" />
 	</bean>
 </beans>
